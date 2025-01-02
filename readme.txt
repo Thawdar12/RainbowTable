@@ -1,5 +1,7 @@
-how the function works:
+### How the function works:
 
-The reduce_hash function takes a hash_value, an index, and a password_count as input. It returns a password from an array of passwords. The hash_value is a hash of the user’s password, and the index is a value that is unique to the user. The int() function converts the hash_value from hexadecimal to an integer, and the % operator calculates the remainder of the division of (int(hash_value, 16) + index) by password_count. This value is used as an index to retrieve a password from the passwords array.
+The `reduce_hash` function takes a hash value, an index, and the number of passwords as inputs. It converts the hash value to an integer, adds the index, and calculates the remainder when divided by the password count, which is then used to select a password from the list.
 
-The find_preimage function takes a target_hash and a rainbow_table as input. It returns the original password that was hashed to produce the target_hash. If the target_hash is found in the rainbow_table, the function returns the corresponding password. Otherwise, the function generates a new hash by repeatedly applying the reduce_hash function to the target_hash for a fixed number of iterations. If the new hash is found in the rainbow_table, the function returns the corresponding password. If the password cannot be found, the function returns None.
+The `find_preimage` function attempts to find the original password for a given target hash. If the hash exists in the rainbow table, it returns the corresponding password. Otherwise, it iteratively applies the `reduce_hash` function to generate new hashes and checks if any match a hash in the table. If found, it returns the original password; if not, it returns `None`.
+
+### What I learnt 
